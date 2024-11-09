@@ -1,0 +1,28 @@
+<!-- app5/templates/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WBAP Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1>WBAP Register</h1>
+    <form method="POST">
+        <input type="text" name="username" placeholder="WBAP Username" required>
+        <input type="password" name="password" placeholder="WBAP Password" required>
+        <button type="submit">WBAP Register</button>
+    </form>
+    <p>Already have a WBAP account? <a href="{{ url_for('login') }}">Login here</a></p>
+</body>
+</html>
